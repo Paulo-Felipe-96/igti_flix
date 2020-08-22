@@ -1,0 +1,34 @@
+:root {
+    --ice: #f0f0f5;
+    --fire: orange;
+    --high-purp: rgb(174, 52, 235);
+    --low-purp: rgb(216, 165, 242);
+}
+
+body {
+    background-color: var(--ice);
+    font-family: 'Ubuntu';
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: var(--high-purp);
+}
+
+li {
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 16px 14px;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    background-color: var(--low-purp);
+    transition-duration: 0.1s;
+}

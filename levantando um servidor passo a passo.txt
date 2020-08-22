@@ -1,0 +1,12 @@
+LEVANTANDO UM PROJETO NO DJANGO POR PARTES
+
+. Criar VENV
+. Instalar as dependências (DJANGO)
+. Iniciar o projeto com o Django-admin
+. git (opcional)
+. rodar o servidor pela primeira vez para testar se está funcionando
+. Iniciar a APP principal do projeto
+. apontar para o Django que a APP principal existe
+. configurar as URLS da APP base e principal
+. em principal, arquivo views.py, criar um método chamado index para testar, com http e HttpResponse do django
+. testar se os caminhos de /admin e /principal estão funcionando corretamente com o servidor ligado
