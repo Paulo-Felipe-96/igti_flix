@@ -14,10 +14,6 @@ form {
     align-items: center;
 }
 
-#my_form {
-    background-color: var(--low-purp);
-}
-
 form label {
     display: inline;
     text-align: center;
@@ -36,4 +32,40 @@ form label {
 #submit-button:hover {
     background-color: var(--low-purp);
     transition-duration: 0.1s;
+}
+
+table {
+    margin: 30px;
+    text-align: center;
+}
+
+thead {
+    background-color: var(--high-purp);
+    color: var(--ice);
+    font-weight: bold;
+}
+
+td,
+th {
+    border: 1px solid var(--ice);
+    padding: 8px 15px;
+}
+
+.list-button {
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 0.8em;
+}
+
+.apagar-button {
+    background: rgb(240, 164, 164);
+}
+
+.editar-button {
+    background: var(--low-purp);
+}
+
+.editar-button, .apagar-button {
+    color: var(--ice);
 }

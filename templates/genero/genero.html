@@ -2,6 +2,30 @@
 {% block content %}
 <main>
     <div class="container">
+        <div>
+            {% if gender_records %}
+            <table>
+                <thead>
+                    <th>Gênero</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
+                </thead>
+                <tbody>
+                    {% for gender in gender_records %}
+                    <tr>
+                        <td>{{ gender.descricao }}</td>
+                        <td><button class="list-button editar-button"
+                                onclick="updateItem({{ gender.id }})">Alterar</button></td>
+                        <td><button class="list-button apagar-button"
+                                onclick='deleteItem({{ gender.id }})'>Excluir</button></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>Nenhum dado cadastrado</p>
+            {% endif%}
+        </div>
         <div id="my_form">
             <form onsubmit="/genero" id="form-genero" method="POST">{% csrf_token %}
                 {{form}}
@@ -10,4 +34,31 @@
         </div>
     </div>
 </main>
+<script>
+    function deleteItem(id) {
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const request = new Request(
+            `/genero/delete/${id}`, {
+                'headers': {
+                    'X-CSRFToken': csrftoken
+                }
+            }
+        );
+
+        fetch(request, {
+            method: 'DELETE',
+            mode: 'same-origin'
+        }).then(function (response) {
+            if (response.status === 500) {
+                alert('Não foi possível excluir!');
+            } else {
+                location.replace('/genero')
+            }
+        });
+    }
+
+    function updateItem(id) {
+        location.replace(`/genero/update/${id}`)
+    }
+</script>
 {% endblock %}
